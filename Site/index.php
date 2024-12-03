@@ -35,8 +35,8 @@
         </nav>
     </header>
     <h1>Bibliothèque</h1>
-<!-- LORIE TEST-->
- <!-- Test aprouvé -->
+<!-- LORIE TEST--> 
+ <!-- Test -->
 
 <!-- DEUXIEME TEST LORIE -->
 <!-- test 3-->
