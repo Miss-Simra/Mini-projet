@@ -38,7 +38,8 @@
 <!-- LORIE TEST-->
  <!-- Test aprouvé -->
 
-<!-- DEUXIEME TEST LORIE --> *
+<!-- DEUXIEME TEST LORIE -->
+<!-- test 3-->
 </body>
 
 </html>
