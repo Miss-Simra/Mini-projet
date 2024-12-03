@@ -19,7 +19,7 @@
       rel="stylesheet"
     />
 </head>
-<body>dd
+<body>
 <header>
         <nav class="header-nav">
             <ul class="header-nav-list">
@@ -35,8 +35,8 @@
         </nav>
     </header>
     <h1>Bibliothèque</h1>
-<!-- LORIE TEST-->
- <!-- Test aprouvé -->
+<!-- LORIE TEST--> 
+ <!-- Test -->
 </body>
 
 </html>
