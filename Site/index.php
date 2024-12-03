@@ -36,8 +36,9 @@
     </header>
     <h1>Bibliothèque</h1>
 <!-- LORIE TEST-->
+ <!-- Test aprouvé -->
 
-<!-- DEUXIEME TEST LORIE -->
+<!-- DEUXIEME TEST LORIE --> *
 </body>
 
 </html>
