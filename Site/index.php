@@ -37,9 +37,6 @@
     <h1>Bibliothèque</h1>
 <!-- LORIE TEST--> 
  <!-- Test -->
-
-<!-- DEUXIEME TEST LORIE -->
-<!-- test 3-->
 </body>
 
 </html>
