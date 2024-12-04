@@ -36,4 +36,20 @@
 		// On lance une fonction PHP qui permet de conna�tre l'erreur renvoy�e lors de la connection � la base (en r�cup�rant le message li� � l'exception)
 		die('<strong>Erreur d�tect�e !!! </strong> : ' . $e->getMessage());
 	}
+
+if ($SERVER['REQUEST_METHOD'] === 'POST') {
+	// Récupération des données username + password
+	$username = $_POST['identifiant'] ?? '' ;
+	$password = $_POST['motdepasse'] ?? '' ;
+	
+	if (!empty($identifiant) && !empty($motdepasse)) {
+		// Recherche de l'utilisateur
+		$stmt = $pdo->prepare("SELECT * FROM utilisateurs");
+		$utilisateur = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		// Je continuerai plus tard ce truc me fout un mal de crâne MDR
+	}
+}
+
+
 ?>
