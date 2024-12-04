@@ -38,6 +38,8 @@
 <!-- LORIE TEST--> 
 <h1>Bibliothèque</h1>
 <!--text charline-->
+<p>bonjour</p>
+
 </body>
 
 </html>
