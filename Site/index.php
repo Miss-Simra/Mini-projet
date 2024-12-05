@@ -30,7 +30,7 @@
                 <li class="header-nav-item"><a class="header-nav-link" href="utilisateur.php">Utilisateur</a></li>
                 <li class="header-nav-item"><a class="header-nav-link" href="membre.php">Membre</a></li>
                 <li class="header-nav-item"><a class="header-nav-link" href="admin.php">Administration</a></li>
-                <li class="header-nav-item"><a class="header-nav-link" href="deconnexion.php">Déconnexion</a></li class="header-nav-item">
+                <li class="header-nav-item"><a class="header-nav-link" href="deconnexion.php">Déconnexion</a></li>
             </ul>
         </nav>
     </header>
