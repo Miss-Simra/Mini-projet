@@ -1,16 +1,29 @@
 <?php
-if ($SERVER['REQUEST_METHOD'] === 'POST') {
+
+session_start();
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	// Récupération des données username + password
-	$username = $_POST['identifiant'] ?? '' ;
-	$password = $_POST['motdepasse'] ?? '' ;
+	$identifiant = $_POST['identifiant'] ?? '' ;
+	$motdepasse = $_POST['motdepasse'] ?? '' ;
 	
 	if (!empty($identifiant) && !empty($motdepasse)) {
 		// Recherche de l'utilisateur
 		$stmt = $pdo->prepare("SELECT * FROM utilisateurs");
 		$utilisateur = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-		// Je continuerai plus tard ce truc me fout un mal de crâne MDR
-	}
+        if ($utilisateur) {
+            // Vérification du mot de passe
+            if (password_verify($motdepasse, $utilisateur['motdepasse'])) {
+                echo "Connexion réussie. Bienvenue, " . htmlspecialchars($identifiant) . "!";
+            } else {
+                echo "Mot de passe incorrect.";
+            }
+        } else {
+            echo "Identifiant introuvable.";
+        }
+    }
 }
 
 ?>
@@ -20,11 +33,11 @@ if ($SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire de Connexion</title>
+    <title>Connexion</title>
 </head>
 <body>
-    <h2>Connexion</h2>
-    <form action="" method="post">
+    <h1>Connexion</h1>
+    <form method="post" action="connexion.php"> 
         <label for="identifiant">Identifiant :</label>
         <input type="text" id="identifiant" name="identifiant" required>
         <br><br>
