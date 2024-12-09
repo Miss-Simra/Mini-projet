@@ -1,7 +1,7 @@
 <?php
 	// Param�tres de connexion
 	$serveur  = "localhost:3306";
-	$database = "UE_L204";
+	$database = "biliotheque";
 	$user     = "root";
 	$password = "";
 	
