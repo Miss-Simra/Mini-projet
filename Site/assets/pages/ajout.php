@@ -14,7 +14,7 @@
     echo 'Le nouveau livre a été ajouté dans la table \'livre\'.';$requete->closeCursor();
 
     // ajouté un nouvel utilisateur 
-    $requete=$bdd->prepare('INSERT INTO utilisateur (identifiant, mot_de_passe) VALUES (:identifiant, :mot_de_passe,)');
+    $requete=$bdd->prepare('INSERT INTO utilisateur (identifiant, mot_de_passe) VALUES (:identifiant, :mot_de_passe)');
     $requete->execute(array(
         'identifiant'=>$_POST['nouvel_identifiant'],
         'mot_de_passe'=>$_POST['nouveau_mot_de_passe'],
