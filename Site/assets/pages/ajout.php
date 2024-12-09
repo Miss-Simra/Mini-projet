@@ -11,7 +11,7 @@
         'annee_publication'=>$_POST['nouvelle_annee'],
         'livre_populaire'=>$_POST['livre_populaire'],
     ));
-    echo 'Le nouveau livre a été ajouté dans la table '\'livre\'.';$requete->closeCursor();
+    echo 'Le nouveau livre a été ajouté dans la table \'livre\'.';$requete->closeCursor();
 
     // ajouté un nouvel utilisateur 
     $requete=$bdd->prepare('INSERT INTO utilisateur (identifiant, mot_de_passe) VALUES (:identifiant, :mot_de_passe,)');
@@ -19,7 +19,7 @@
         'identifiant'=>$_POST['nouvel_identifiant'],
         'mot_de_passe'=>$_POST['nouveau_mot_de_passe'],
     ));
-    echo 'Le nouvel utilisateur a été ajouté dans la table '\'utilisateur\'.';$requete->closeCursor();
+    echo 'Le nouvel utilisateur a été ajouté dans la table \'utilisateur\'.';$requete->closeCursor();
 ?>
 
 <!DOCTYPE html>
