@@ -21,3 +21,46 @@
     ));
     echo 'Le nouvel utilisateur a été ajouté dans la table '\'utilisateur\'.';$requete->closeCursor();
 ?>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./style.css">
+    <title>Ajout d'un livre ou d'un utilisateur</title>
+</head>
+<body>
+    <form class="ajout-form" method="post" action="ajout.php"> 
+    <h1>Ajouter un nouveau livre </h1>
+        <label for="nouvel_auteur">Auteur :</label>
+        <input type="text" id="nouvel_auteur" name="nouvel_auteur" placeholder="Nom de l'auteur" required>
+        <br><br>
+        <label for="nouveau_titre">Titre :</label>
+        <input type="text" id="nouveau_titre" name="nouveau_titre" placeholder="Titre du livre" required>
+        <br><br>
+        <label for="nouveau_annee">Année de publication :</label>
+        <input type="number" id="nouvelle_annee" name="nouvelle_annee" placeholder="Année de publication" required>
+        <br><br>
+        <label for="livre_populaire">Livre Populaire : </label>
+        <select id="livre_populaire" name="livre_populaire" required>
+            <option value="1">Oui</option>
+            <option value="2">Non</option>
+        </select>
+		<br><br>
+        <button type="submit">Ajouter le nouveau livre</button>
+    </form>
+
+    
+    <form class="ajout-form" method="post" action="ajout.php"> 
+    <h1>Ajouter de nouvel utilisateur </h1>
+        <label for="nouvel_identifiant">Identifiant :</label>
+        <input type="text" id="nouvel_identifiant" name="nouvel_identifiant" placeholder="Identifiant de l'utilisateur" required>
+        <br><br>
+        <label for="nouveau_mot_de_passe">Mot de passe :</label>
+        <input type="password" id="nouveau_mot_de_passe" name="nouveau_mot_de_passe" placeholder="Mot de passe" required>
+        <br><br>
+        <button type="submit">Ajouter le nouvel utilisateur</button>
+    </form>
+</body>
+</html>
