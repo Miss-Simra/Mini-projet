@@ -80,6 +80,11 @@
 body {
   font-family: Arial, sans-serif;
   font-size: 1.1rem;
+  background-image: url('../css/images/livre_1.png');
+  background-size: cover; /* Ajuste l'image pour couvrir tout l'écran */
+  background-position: center; /* Centre l'image */
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
 }
 
 h1 {
@@ -100,6 +105,7 @@ a {
   font-family: "Poppins", serif;
   font-weight: 600;
 }
+
 
 /* Structure */
 
