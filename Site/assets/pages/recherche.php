@@ -53,10 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['searchQuery'])) {
 </head>
 
 <body>
-    <header>
-        <h1>Retrouvez vos livres préférés</h1>
-    </header>
-
+    <h1>Retrouvez vos livres préférés</h1>
     <form class="ajout-form" method="GET" action="recherche.php">
         <label for="search">Rechercher un livre :</label>
         <input type="text" id="search" name="search" placeholder="Titre ou Auteur" required>
