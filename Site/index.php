@@ -31,6 +31,21 @@
                 <li class="header-nav-item"><a class="header-nav-link" href="#">Contact</a></li>
                 <!-- <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/ajout.php">Ajout</a></li> -->
                 <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/connexion.php">Connexion</a></li>
+                <!-- Variable $isLoggedIn à changer si besoin -->
+                <?php if ($isLoggedIn && $role === 'admin'): ?>
+                    <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/ajout.php">Ajout</a></li>
+                <?php endif; ?>
+                <?php if ($isLoggedIn): ?>
+                    <li class="header-nav-item dropdown">
+                        <a class="header-nav-link dropbtn" href="#">Mon Compte</a>
+                        <div class="dropdown-content">
+                            <a href="assets/pages/mon_compte.php"><?= $role === 'admin' ? 'Mon Compte Administrateur' : 'Mon Compte Utilisateur'; ?></a>
+                            <a href="assets/pages/deconnexion.php">Déconnexion</a>
+                        </div>
+                    </li>
+                <?php else: ?>
+                    <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/connexion.php">Connexion</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>
