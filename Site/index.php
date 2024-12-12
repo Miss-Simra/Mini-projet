@@ -23,7 +23,7 @@
 <header>
         <nav class="header-nav">
             <ul class="header-nav-list">
-                <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/index.php">Accueil</a></li>
+                <li class="header-nav-item"><a class="header-nav-link" href="index.php">Accueil</a></li>
                 <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/recherche.php">Recherche</a></li>
                 <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/ajout.php">Ajout</a></li>
                 <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/connexion.php">Connexion</a></li>
