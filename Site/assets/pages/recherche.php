@@ -54,15 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['searchQuery'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Recherche de Livres</title>
 </head>
 
 <body>
-    <header>
-        <h1>Retrouvez vos livres préférés</h1>
-    </header>
-
-    <form method="GET" action="recherche.php">
+    <h1>Retrouvez vos livres préférés</h1>
+    <form class="ajout-form" method="GET" action="recherche.php">
         <label for="search">Rechercher un livre :</label>
         <input type="text" id="search" name="search" placeholder="Titre ou Auteur" required>
         <button type="submit">Rechercher</button>

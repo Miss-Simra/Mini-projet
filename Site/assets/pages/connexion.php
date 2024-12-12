@@ -34,11 +34,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Connexion</title>
 </head>
 <body>
     <h1>Connexion</h1>
-    <form method="post" action="connexion.php"> 
+    <form class="ajout-form" method="post" action="connexion.php"> 
         <label for="identifiant">Identifiant :</label>
         <input type="text" id="identifiant" name="identifiant" required>
         <br><br>

@@ -23,7 +23,7 @@
 <header>
         <nav class="header-nav">
             <ul class="header-nav-list">
-                <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/index.php">Accueil</a></li>
+                <li class="header-nav-item"><a class="header-nav-link" href="index.php">Accueil</a></li>
                 <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/recherche.php">Recherche</a></li>
                 <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/ajout.php">Ajout</a></li>
                 <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/connexion.php">Connexion</a></li>
@@ -34,7 +34,8 @@
             </ul>
         </nav>
     </header>
-      <h1>Bibliothèque</h1>
+      <h1>Bienvenue sur la Bibliothèque municipale</h1>
+      <p>Venez découvrir nos collections de livres ! Un univers dédié à la lecture, à la découverte et à l'apprentissage. </p>
 </body>
 
 </html>
