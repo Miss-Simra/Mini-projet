@@ -34,8 +34,14 @@
             </ul>
         </nav>
     </header>
+
+    <div class="main-introduction">
+      <img class="icon-bibliotheque" src="./assets/img/bibliotheque.png" alt="icône bibliothèque ordinateur">
       <h1>Bienvenue sur la Bibliothèque municipale</h1>
       <p>Venez découvrir nos collections de livres ! Un univers dédié à la lecture, à la découverte et à l'apprentissage. </p>
+    </div>
+
+    <p class="introduction">Explorez nos collections, participez à nos ateliers et événements, ou trouvez votre prochain livre préféré dans un espace dédié à la culture et au savoir !</p>
 </body>
 
 </html>

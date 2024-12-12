@@ -166,6 +166,32 @@ header {
   font-weight: 800;
 }
 
+/* CSS Page d'accueil */
+
+.main-introduction {
+  background-color: rgba(96, 130, 189, 0.836);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 1000px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.introduction {
+  color: white;
+  padding: 2rem 1rem;
+}
+
+.icon-bibliotheque {
+  width: 20%;
+  margin: 0;
+  margin-bottom: -12em;
+}
+
+
+
 /* CSS de la page ajout */
 .ajout-form {
   background-color: #f4f4f9;
