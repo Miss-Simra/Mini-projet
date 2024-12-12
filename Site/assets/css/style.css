@@ -105,7 +105,10 @@ a {
   font-family: "Poppins", serif;
   font-weight: 600;
 }
-
+/* couleur page d'accueil */
+.index {
+  color: white;
+}
 
 /* Structure */
 
