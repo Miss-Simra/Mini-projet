@@ -1,4 +1,10 @@
 <?php
+
+// charger le fichier de connexion
+include 'connexion.php';
+ // Charge le fichier pour se connecter à la bdd
+ include '../../inc.connexion.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['searchQuery'])) {
     $searchQuery = htmlspecialchars($_POST['searchQuery']);
 

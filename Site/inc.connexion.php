@@ -1,7 +1,7 @@
 <?php
 	// Param�tres de connexion
 	$serveur  = "localhost:3306";
-	$database = "biliotheque";
+	$database = "bibliotheque";
 	$user     = "root";
 	$password = "";
 	
