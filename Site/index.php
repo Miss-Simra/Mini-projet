@@ -25,12 +25,12 @@
             <ul class="header-nav-list">
                 <li class="header-nav-item"><a class="header-nav-link" href="index.php">Accueil</a></li>
                 <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/recherche.php">Recherche</a></li>
-                <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/ajout.php">Ajout</a></li>
+                <li class="header-nav-item"><a class="header-nav-link" href="#">Blogs</a></li>
+                <li class="header-nav-item"><a class="header-nav-link" href="#">Agenda</a></li>
+                <li class="header-nav-item"><a class="header-nav-link" href="#">A découvrir</a></li>
+                <li class="header-nav-item"><a class="header-nav-link" href="#">Contact</a></li>
+                <!-- <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/ajout.php">Ajout</a></li> -->
                 <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/connexion.php">Connexion</a></li>
-                <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/utilisateur.php">Utilisateur</a></li>
-                <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/membre.php">Membre</a></li>
-                <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/admin.php">Administration</a></li>
-                <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/deconnexion.php">Déconnexion</a></li>
             </ul>
         </nav>
     </header>

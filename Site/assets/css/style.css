@@ -80,11 +80,11 @@
 body {
   font-family: Arial, sans-serif;
   font-size: 1.1rem;
-  background-image: url('/assets/css/images/livre_1.png');
+  background-image: url("../img/livre_1.png");
   background-size: cover; /* Ajuste l'image pour couvrir tout l'écran */
   background-position: center; /* Centre l'image */
-  background-repeat: no-repeat; 
-  background-attachment: fixed; 
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h1 {
@@ -96,7 +96,6 @@ h1 {
   font-family: "Poppins", sans-serif;
 }
 
-
 img {
   max-width: 100%;
   height: auto;
@@ -107,6 +106,9 @@ a {
   font-weight: 600;
 }
 
+p {
+  text-align: center;
+}
 
 /* Structure */
 
@@ -165,7 +167,7 @@ header {
 }
 
 /* CSS de la page ajout */
-.ajout-form{
+.ajout-form {
   background-color: #f4f4f9;
   border-radius: 10px;
   padding: 20px;
@@ -189,8 +191,8 @@ header {
   margin-bottom: 8px;
   display: block;
 }
-.ajout-form input, 
-.ajout-form select, 
+.ajout-form input,
+.ajout-form select,
 .ajout-form button {
   width: 100%;
   padding: 10px;
