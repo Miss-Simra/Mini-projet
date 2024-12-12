@@ -95,6 +95,14 @@ h1 {
   padding: 1.5rem;
   font-family: "Poppins", sans-serif;
 }
+p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15rem;
+  padding: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
 
 img {
   max-width: 100%;
@@ -105,10 +113,7 @@ a {
   font-family: "Poppins", serif;
   font-weight: 600;
 }
-/* couleur page d'accueil */
-.index {
-  color: white;
-}
+
 
 /* Structure */
 

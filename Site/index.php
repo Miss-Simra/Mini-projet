@@ -34,7 +34,7 @@
             </ul>
         </nav>
     </header>
-      <h1 class="index" >Bienvenue sur la Bibliothèque municipale</h1>
+      <h1>Bienvenue sur la Bibliothèque municipale</h1>
       <p>Venez découvrir nos collections de livres ! Un univers dédié à la lecture, à la découverte et à l'apprentissage. </p>
 </body>
 
