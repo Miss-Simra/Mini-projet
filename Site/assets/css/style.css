@@ -190,7 +190,76 @@ header {
   margin-bottom: -12em;
 }
 
+/* Bulle de recherche */
+.search-bubble {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
 
+.search-bubble form {
+  display: flex;
+  align-items: center;
+}
+
+.search-bubble input {
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 50px;
+  width: 200px;
+  transition: width 0.3s ease-in-out;
+}
+
+.search-bubble input:focus {
+  width: 300px;
+}
+
+.search-bubble button {
+  border: none;
+  background: none;
+  font-size: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Résultats */
+.search-results {
+  margin-top: 100px;
+  width: 80%;
+}
+
+.search-results table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.search-results th,
+.search-results td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.search-results th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 20px;
+}
 
 /* CSS de la page ajout */
 .ajout-form {

@@ -1,6 +1,6 @@
 <?php
- // Charge le fichier pour se connecter à la bdd
- include '../../inc.connexion.php';
+// Charge le fichier pour se connecter à la bdd
+include '../../inc.connexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['searchQuery'])) {
     $searchQuery = htmlspecialchars($_POST['searchQuery']);
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['searchQuery'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Recherche de Livres</title>
 </head>
 
@@ -63,6 +63,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['searchQuery'])) {
         <button type="submit">Rechercher</button>
     </form>
     </section>
+    <div class="search-bubble">
+        <form method="POST" action="">
+            <input type="text" name="searchQuery" placeholder="Rechercher un livre..." required>
+            <button type="submit">🔍</button>
+        </form>
+    </div>
+
+    <!-- Résultats de la recherche -->
+    <div class="search-results">
+        <?php if (!empty($errorMessage)): ?>
+            <p class="error"><?php echo $errorMessage; ?></p>
+        <?php endif; ?>
+
+        <?php if (!empty($results)): ?>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Auteur</th>
+                        <th>Année de Publication</th>
+                        <th>Populaire</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($results as $row): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($row['titre']); ?></td>
+                            <td><?php echo htmlspecialchars($row['auteur']); ?></td>
+                            <td><?php echo htmlspecialchars($row['annee_publication']); ?></td>
+                            <td><?php echo $row['populaire'] ? 'Oui' : 'Non'; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php endif; ?>
+    </div>
+</body>
+
 </body>
 
 </html>
