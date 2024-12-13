@@ -1,6 +1,4 @@
 <?php
-    // charger le fichier de connexion
-    include 'connexion.php';
     // Charge le fichier pour se connecter à la bdd
 	include '../../inc.connexion.php';
 
@@ -34,6 +32,8 @@
     <title>Ajout d'un livre ou d'un utilisateur</title>
 </head>
 <body>
+
+<!-- Ajout : livres -->
     <form class="ajout-form" method="post" action="ajout.php"> 
     <h1>Ajouter un nouveau livre </h1>
         <label for="nouvel_auteur">Auteur :</label>
@@ -54,7 +54,11 @@
         <button type="submit">Ajouter le nouveau livre</button>
     </form>
 
-    
+    <!-- Ajout emprunt -->
+
+    <!-- Ajout commande -->
+
+    <!-- Ajout : nouvel utilisateur -->
     <form class="ajout-form" method="post" action="ajout.php"> 
     <h1>Ajouter de nouvel utilisateur </h1>
         <label for="nouvel_identifiant">Identifiant :</label>
