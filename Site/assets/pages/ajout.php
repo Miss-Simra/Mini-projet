@@ -21,6 +21,29 @@
         'mot_de_passe'=>$_POST['nouveau_mot_de_passe'],
     ));
     echo 'Le nouvel utilisateur a été ajouté dans la table \'utilisateurs\'.';$requete->closeCursor();
+
+    // ajouté un nouvel emprunt
+    $requete = $bdd->prepare('INSERT INTO emprunt (id_utilisateur, id_livre, date_debut_emprunt, date_fin_emprunt) VALUES (:id_utilisateur, :id_livre, :date_debut_emprunt, :date_fin_emprunt)');
+    $requete->execute(array(
+        'id_utilisateur' => $_POST['utilisateur'],
+        'id_livre' => $_POST['livre'],
+        'date_debut_emprunt' => $_POST['nouvelle_date_debut'],
+        'date_fin_emprunt' => $_POST['nouvelle_date_fin'],
+    ));
+    echo 'Le nouvel emprunt a été ajouté dans la table \'emprunt\'.';
+    $requete->closeCursor();
+
+    // ajouté une nouvelle commande
+    $requete = $bdd->prepare('INSERT INTO commande (id_utilisateur, id_livre, date_debut_commande, date_fin_commande) VALUES (:id_utilisateur, :id_livre, :date_debut_commande, :date_fin_commande)');
+    $requete->execute(array(
+        'id_utilisateur' => $_POST['utilisateur'],
+        'id_livre' => $_POST['livre'],
+        'date_debut_commande' => $_POST['nouvelle_date_debut'],
+        'date_fin_commande' => $_POST['nouvelle_date_fin'],
+    ));
+    echo 'La nouvelle commande a été ajouté dans la table \'commande\'.';
+    $requete->closeCursor();
+    
 ?>
 
 <!DOCTYPE html>
