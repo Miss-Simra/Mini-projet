@@ -21,6 +21,29 @@
         'mot_de_passe'=>$_POST['nouveau_mot_de_passe'],
     ));
     echo 'Le nouvel utilisateur a été ajouté dans la table \'utilisateurs\'.';$requete->closeCursor();
+
+    // ajouté un nouvel emprunt
+    $requete = $bdd->prepare('INSERT INTO emprunt (id_utilisateur, id_livre, date_debut_emprunt, date_fin_emprunt) VALUES (:id_utilisateur, :id_livre, :date_debut_emprunt, :date_fin_emprunt)');
+    $requete->execute(array(
+        'id_utilisateur' => $_POST['utilisateur'],
+        'id_livre' => $_POST['livre'],
+        'date_debut_emprunt' => $_POST['nouvelle_date_debut'],
+        'date_fin_emprunt' => $_POST['nouvelle_date_fin'],
+    ));
+    echo 'Le nouvel emprunt a été ajouté dans la table \'emprunt\'.';
+    $requete->closeCursor();
+
+    // ajouté une nouvelle commande
+    $requete = $bdd->prepare('INSERT INTO commande (id_utilisateur, id_livre, date_debut_commande, date_fin_commande) VALUES (:id_utilisateur, :id_livre, :date_debut_commande, :date_fin_commande)');
+    $requete->execute(array(
+        'id_utilisateur' => $_POST['utilisateur'],
+        'id_livre' => $_POST['livre'],
+        'date_debut_commande' => $_POST['nouvelle_date_debut'],
+        'date_fin_commande' => $_POST['nouvelle_date_fin'],
+    ));
+    echo 'La nouvelle commande a été ajouté dans la table \'commande\'.';
+    $requete->closeCursor();
+    
 ?>
 
 <!DOCTYPE html>
@@ -54,11 +77,43 @@
         <button type="submit">Ajouter le nouveau livre</button>
     </form>
 
-    <!-- Ajout emprunt -->
+<!-- Ajout emprunt -->
+    <form class="ajout-form" method="post" action="ajout.php"> 
+    <h1>Ajouter un nouvel emprunt </h1>
+        <label for="utilisateur">Utilisateur :</label>
+        <input type="number" id="utilisateur" name="utilisateur" placeholder="  ID de l'utilisateur" required>
+        <br><br>
+        <label for="livre">Livre :</label>
+        <input type="number" id="livre" name="livre" placeholder="ID du livre" required>
+        <br><br>
+        <label for="date-debut-emprunt">Date de début  :</label>
+        <input type="date" id="date-debut-emprunt" name="date-debut-emprunt" required>
+        <br><br>
+        <label for="date-fin-emprunt">Date de fin  :</label>
+        <input type="date" id="date-fin-emprunt" name="date-fin-emprunt" required>
+		<br><br>
+        <button type="submit">Ajouter le nouvel emprunt</button>
+    </form>
 
-    <!-- Ajout commande -->
+<!-- Ajout commande -->
+    <form class="ajout-form" method="post" action="ajout.php"> 
+    <h1>Ajouter une nouvelle commande </h1>
+        <label for="utilisateur">Utilisateur :</label>
+        <input type="number" id="utilisateur" name="utilisateur" placeholder="  ID de l'utilisateur" required>
+        <br><br>
+        <label for="livre">Livre :</label>
+        <input type="number" id="livre" name="livre" placeholder="ID du livre" required>
+        <br><br>
+        <label for="date-debut-commande">Date de début  :</label>
+        <input type="date" id="date-debut-commande" name="date-debut-commande" required>
+        <br><br>
+        <label for="date-fin-commande">Date de fin  :</label>
+        <input type="date" id="date-fin-commande" name="date-fin-commande" required>
+		<br><br>
+        <button type="submit">Ajouter la nouvelle commande</button>
+    </form>
 
-    <!-- Ajout : nouvel utilisateur -->
+<!-- Ajout : nouvel utilisateur -->
     <form class="ajout-form" method="post" action="ajout.php"> 
     <h1>Ajouter de nouvel utilisateur </h1>
         <label for="nouvel_identifiant">Identifiant :</label>
