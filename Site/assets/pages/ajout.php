@@ -54,11 +54,43 @@
         <button type="submit">Ajouter le nouveau livre</button>
     </form>
 
-    <!-- Ajout emprunt -->
+<!-- Ajout emprunt -->
+    <form class="ajout-form" method="post" action="ajout.php"> 
+    <h1>Ajouter un nouvel emprunt </h1>
+        <label for="utilisateur">Utilisateur :</label>
+        <input type="number" id="utilisateur" name="utilisateur" placeholder="  ID de l'utilisateur" required>
+        <br><br>
+        <label for="livre">Livre :</label>
+        <input type="number" id="livre" name="livre" placeholder="ID du livre" required>
+        <br><br>
+        <label for="date-debut-emprunt">Date de début  :</label>
+        <input type="date" id="date-debut-emprunt" name="date-debut-emprunt" required>
+        <br><br>
+        <label for="date-fin-emprunt">Date de fin  :</label>
+        <input type="date" id="date-fin-emprunt" name="date-fin-emprunt" required>
+		<br><br>
+        <button type="submit">Ajouter le nouvel emprunt</button>
+    </form>
 
-    <!-- Ajout commande -->
+<!-- Ajout commande -->
+    <form class="ajout-form" method="post" action="ajout.php"> 
+    <h1>Ajouter une nouvelle commande </h1>
+        <label for="utilisateur">Utilisateur :</label>
+        <input type="number" id="utilisateur" name="utilisateur" placeholder="  ID de l'utilisateur" required>
+        <br><br>
+        <label for="livre">Livre :</label>
+        <input type="number" id="livre" name="livre" placeholder="ID du livre" required>
+        <br><br>
+        <label for="date-debut-commande">Date de début  :</label>
+        <input type="date" id="date-debut-commande" name="date-debut-commande" required>
+        <br><br>
+        <label for="date-fin-commande">Date de fin  :</label>
+        <input type="date" id="date-fin-commande" name="date-fin-commande" required>
+		<br><br>
+        <button type="submit">Ajouter la nouvelle commande</button>
+    </form>
 
-    <!-- Ajout : nouvel utilisateur -->
+<!-- Ajout : nouvel utilisateur -->
     <form class="ajout-form" method="post" action="ajout.php"> 
     <h1>Ajouter de nouvel utilisateur </h1>
         <label for="nouvel_identifiant">Identifiant :</label>

@@ -14,16 +14,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$stmt = $pdo->prepare("SELECT * FROM utilisateurs");
 		$utilisateur = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        if ($utilisateur) {
+        if ($utilisateur && password_verify($motdepasse,$utilisateur['motdepasse'])) {
             // Vérification du mot de passe
-            if (password_verify($motdepasse, $utilisateur['motdepasse'])) {
-                echo "Connexion réussie. Bienvenue, " . htmlspecialchars($identifiant) . "!";
-            } else {
-                echo "Mot de passe incorrect.";
-            }
+            $_SESSION['loggedIn']=true;
+            $_SESSION['role']=$utilisateur['role'];
+            $_SESSION['identifiant']=$utilisateur['identifiant'];
+            header('Location: ../index.php');
+            exit;
+            echo "Connexion réussie. Bienvenue, " . htmlspecialchars($identifiant) . "!";
         } else {
-            echo "Identifiant introuvable.";
+            echo "Mot de passe incorrect.";
         }
+    } else {
+        echo "Identifiant introuvable.";
+    }
     }
 }
 

@@ -1,6 +1,15 @@
+<?php
+
+session_start();
+if(!issets($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true){
+    header('Location: connexion.php');
+    exit;
+}
+
+$role=$_SESSION['role'];
+?>
 
 <!-- RECAP : EMPRUNTS & COMMANDES -->
-
 
 <?php
 
@@ -26,13 +35,16 @@ $result_commandes = $conn->query($sql_commandes);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emprunts et Commandes</title>
+    <title>
+        <?php $role === 'admin' ? 'Mon compte administrateur' : 'Mon compte utilisateur'; ?>
+    </title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header>
-        <h1>Emprunts et Commandes</h1>
+        <h1><?php $role === 'admin' ? 'Mon compte administrateur' : 'Mon compte utilisateur'; ?></h1>
+        <p>Bienvenue sur votre espace</p>
     </header>
     
     <div>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+$isLoggedIn=isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true;
+$role=$_SESSION['role'] ?? null;
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
