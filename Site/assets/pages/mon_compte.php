@@ -80,6 +80,7 @@ $result_commandes = $conn->query($sql_commandes);
     </div>
 </body>
 </html>
+
 <!-- EXEMPLE UTILISATEUR :  -->
 
 <!-- Mon compte Utilisateur 1 -->
