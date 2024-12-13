@@ -37,7 +37,6 @@ $role=$_SESSION['role'] ?? null;
                 <li class="header-nav-item"><a class="header-nav-link" href="#">A découvrir</a></li>
                 <li class="header-nav-item"><a class="header-nav-link" href="#">Contact</a></li>
                 <!-- <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/ajout.php">Ajout</a></li> -->
-                <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/connexion.php">Connexion</a></li>
                 <!-- Variable $isLoggedIn à changer si besoin -->
                 <?php if ($isLoggedIn && $role === 'admin'): ?>
                     <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/ajout.php">Ajout</a></li>
