@@ -1,97 +1,109 @@
 <?php
-
 session_start();
-if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true){
-    header('Location: connexion.php');
-    exit;
+
+// Connexion à la base de données
+$host = 'localhost';
+$dbname = 'bibliotheque';
+$username = 'root';
+$password = '';
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erreur de connexion : " . $e->getMessage());
 }
 
-$role=$_SESSION['role'];
-?>
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['utilisateur'])) {
+    header('Location: connexion.php');
+    exit();
+}
 
-<!-- RECAP : EMPRUNTS & COMMANDES -->
+// Récupérer l'ID de l'utilisateur connecté
+$utilisateur_id = $_SESSION['utilisateur_id'];
 
-<?php
-
-$sql_emprunts = "
-    SELECT e.id_emprunt, u.id_utilisateur AS utilisateur, l.titre AS livre, e.date_debut_emprunt, e.date_fin_emprunt
-    FROM emprunt e
-    JOIN utilisateurs u ON e.id_utilisateur = u.id_utilisateur
-    JOIN livre l ON e.id_livre = l.id_livre
-";
-$result_emprunts = $conn->query($sql_emprunts);
-
-$sql_commandes = "
-    SELECT c.id_commande, u.id_utilisateur AS utilisateur, l.titre AS livre, c.prix, c.date_debut_cmd, c.date_fin_cmd
+// Récupérer les commandes de l'utilisateur
+$commande_stmt = $pdo->prepare("
+    SELECT c.id_commande, l.titre_livre, l.auteur, c.prix, c.date_debut_cmd, c.date_fin_cmd
     FROM commande c
-    JOIN utilisateurs u ON c.id_utilisateur = u.id_utilisateur
-    JOIN livre l ON c.id_livre = l.id_livre
-";
-$result_commandes = $conn->query($sql_commandes);
+    JOIN livres l ON c.id_livre = l.id
+    WHERE c.id_utilisateur = :id_utilisateur
+");
+$commande_stmt->execute(['id_utilisateur' => $utilisateur_id]);
+$commandes = $commande_stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Récupérer les emprunts de l'utilisateur
+$emprunt_stmt = $pdo->prepare("
+    SELECT e.id_emprunt, l.titre_livre, l.auteur, e.date_debut_emprunt, e.date_fin_emprunt
+    FROM emprunt e
+    JOIN livres l ON e.id_livre = l.id
+    WHERE e.id_utilisateur = :id_utilisateur
+");
+$emprunt_stmt->execute(['id_utilisateur' => $utilisateur_id]);
+$emprunts = $emprunt_stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?php $role === 'admin' ? 'Mon compte administrateur' : 'Mon compte utilisateur'; ?>
-    </title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Commandes et Emprunts</title>
 </head>
-
 <body>
-    <header>
-        <h1><?php $role === 'admin' ? 'Mon compte administrateur' : 'Mon compte utilisateur'; ?></h1>
-        <p>Bienvenue sur votre espace</p>
-    </header>
-    
-    <div>
+    <h1>Résumé des Commandes et Emprunts</h1>
 
-        <!-- Section Emprunts -->
-        
-        <div>
-            <h2>Emprunts</h2>
-            <?php
-            // Vérifie si les données ont été trouvés
-            if ($result_emprunts->num_rows > 0) {
-                // Prend chaque emprunt et la met dans une variable $row
-                while($row = $result_emprunts->fetch_assoc()) {
-                    echo '<p><strong>Utilisateur :</strong> ' . $row['utilisateur'] . '</p>';
-                    echo '<p><strong>Titre :</strong> ' . $row['livre'] . '</p>';
-                    echo '<p><strong>Date de début emprunt :</strong> ' . $row['date_debut_emprunt'] . '</p>';
-                    echo '<p><strong>Date de fin emprunt :</strong> ' . $row['date_fin_emprunt'] . '</p>';
-                }
-            } else {
-                echo "<p>Aucun emprunt trouvé.</p>";
-            }
-            ?>
-        </div>
+    <h2>Commandes</h2>
+    <?php if (count($commandes) > 0): ?>
+        <table border="1">
+            <tr>
+                <th>Titre du Livre</th>
+                <th>Auteur</th>
+                <th>Prix</th>
+                <th>Date de Début</th>
+                <th>Date de Fin</th>
+            </tr>
+            <?php foreach ($commandes as $commande): ?>
+                <tr>
+                    <td><?= htmlspecialchars($commande['titre_livre']) ?></td>
+                    <td><?= htmlspecialchars($commande['auteur']) ?></td>
+                    <td><?= htmlspecialchars($commande['prix']) ?> €</td>
+                    <td><?= htmlspecialchars($commande['date_debut_cmd']) ?></td>
+                    <td><?= htmlspecialchars($commande['date_fin_cmd']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php else: ?>
+        <p>Aucune commande enregistrée.</p>
+    <?php endif; ?>
 
-        <!-- Section Commandes -->
-        
-        <div>
-            <h2>Commandes</h2>
-            <?php
-            if ($result_commandes->num_rows > 0) {
-                while($row = $result_commandes->fetch_assoc()) {
-                    echo '<p><strong>Utilisateur :</strong> ' . $row['utilisateur'] . '</p>';
-                    echo '<p><strong>Titre :</strong> ' . $row['livre'] . '</p>';
-                    echo '<p><strong>Prix :</strong> ' . $row['prix'] . ' €</p>';
-                    echo '<p><strong>Date de début commande :</strong> ' . $row['date_debut_cmd'] . '</p>';
-                    echo '<p><strong>Date de fin commande :</strong> ' . $row['date_fin_cmd'] . '</p>';
-                }
-            } else {
-                echo "<p>Aucune commande trouvée.</p>";
-            }
+    <h2>Emprunts</h2>
+    <?php if (count($emprunts) > 0): ?>
+        <table border="1">
+            <tr>
+                <th>Titre du Livre</th>
+                <th>Auteur</th>
+                <th>Date de Début</th>
+                <th>Date de Fin</th>
+            </tr>
+            <?php foreach ($emprunts as $emprunt): ?>
+                <tr>
+                    <td><?= htmlspecialchars($emprunt['titre_livre']) ?></td>
+                    <td><?= htmlspecialchars($emprunt['auteur']) ?></td>
+                    <td><?= htmlspecialchars($emprunt['date_debut_emprunt']) ?></td>
+                    <td><?= htmlspecialchars($emprunt['date_fin_emprunt']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php else: ?>
+        <p>Aucun emprunt enregistré.</p>
+    <?php endif; ?>
 
-            $conn->close();
-            ?>
-        </div>
-    </div>
+    <p><a href="deconnexion.php">Se déconnecter</a></p>
 </body>
 </html>
+
 
 <!-- EXEMPLE UTILISATEUR :  -->
 
