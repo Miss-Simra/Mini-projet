@@ -1,5 +1,4 @@
 <?php
-
 $host = 'localhost';
 $dbname = 'bibliotheque';
 $username = 'root';
@@ -9,38 +8,27 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die('Erreur : ' . $e->getMessage());
+    die("Erreur de connexion : " . $e->getMessage());
 }
 
-
-
-session_start();
-
+// Vérifier si le formulaire est soumis
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $identifiant = $_POST['identifiant'] ?? '';
-    $motdepasse = $_POST['motdepasse'] ?? '';
+    $identifiant = trim($_POST['identifiant']);
+    $motdepasse = trim($_POST['motdepasse']);
 
     if (!empty($identifiant) && !empty($motdepasse)) {
-        // Recherche de l'utilisateur par identifiant
-        $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE identifiant = :identifiant");
-        $stmt->execute(['identifiant' => $identifiant]);
+        $stmt = $pdo->prepare('SELECT * FROM utilisateurs WHERE identifiant = :identifiant AND motdepasse = :motdepasse');
+        $stmt->execute(['identifiant' => $identifiant, 'motdepasse' => $motdepasse]);
+        
         $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($utilisateur) {
-            // Vérification du mot de passe
-            if (password_verify($motdepasse, $utilisateur['motdepasse'])) {
-                $_SESSION['loggedIn'] = true;
-                $_SESSION['identifiant'] = $utilisateur['identifiant'];
-                header('Location: ../index.php'); // Redirection après connexion
-                exit;
-            } else {
-                echo "Mot de passe incorrect.";
-            }
+            echo "<p>Connexion réussie ! Bienvenue, " . htmlspecialchars($utilisateur['identifiant']) . ".</p>";
         } else {
-            echo "Identifiant introuvable.";
+            echo "<p>Identifiant ou mot de passe incorrect.</p>";
         }
     } else {
-        echo "Veuillez remplir tous les champs.";
+        echo "<p>Veuillez remplir tous les champs.</p>";
     }
 }
 ?>
