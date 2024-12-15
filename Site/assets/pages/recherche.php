@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['searchQuery'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Recherche de Livres</title>
 </head>
 
@@ -60,15 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['searchQuery'])) {
     <form class="ajout-form" method="GET" action="recherche.php">
         <label for="search">Rechercher un livre :</label>
         <input type="text" id="search" name="search" placeholder="Titre ou Auteur" required>
-        <button type="submit">Rechercher</button>
+        <button type="submit">Rechercher 🔍</button>
     </form>
     </section>
-    <div class="search-bubble">
-        <form method="POST" action="">
-            <input type="text" name="searchQuery" placeholder="Rechercher un livre..." required>
-            <button type="submit">🔍</button>
-        </form>
-    </div>
 
     <!-- Résultats de la recherche -->
     <div class="search-results">
@@ -104,3 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['searchQuery'])) {
 </body>
 
 </html>
+<!-- Il faut une faire une connexion à la base de données, pour établir un lien avec la base de données.Pour accéder aux données.
+Ensuite j'écris une requête SQL. La requête SELECT permet de dire à la base de données -> "Donne-moi les informations sur les livres où le titre ou l'auteur ressemble à ce que je tape." Le mot-clé LIKE permet de chercher même si on n'a pas écrit exactement le bon titre.
+Pour exécuter la requête : On demande à la base de données de traiter cette requête et de nous donner les résultats correspondants.
+Afficher les résultats : Les résultats (les titres, auteurs, etc.) sont récupérés sous forme de tableau, puis affichés sur la page web. S'il n'y a rien, on affiche un message : "Aucun résultat trouvé." -->
