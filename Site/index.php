@@ -36,7 +36,7 @@ $isUserConnected = isset($_SESSION['utilisateur']);
                 <li class="header-nav-item"><a class="header-nav-link" href="#">A découvrir</a></li>
                 <li class="header-nav-item"><a class="header-nav-link" href="#">Contact</a></li>
                 <!-- <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/ajout.php">Ajout</a></li> -->
-                <?php if ($isUserConnected): ?>
+                <!-- <?php if ($isUserConnected): ?> -->
                 <li class="header-nav-item dropdown">
                     <a class="header-nav-link" href="assets/pages/mon_compte.php">Mon compte</a>
                     <div class="dropdown-content">
@@ -44,9 +44,9 @@ $isUserConnected = isset($_SESSION['utilisateur']);
                         <a href="assets/pages/deconnexion.php">Déconnexion</a>
                     </div>
                 </li>
-            <?php else: ?>
+            <!-- <?php else: ?> -->
                 <li class="header-nav-item"><a class="header-nav-link" href="assets/pages/connexion.php">Connexion</a></li>
-            <?php endif; ?>
+            <!-- <?php endif; ?> -->
         </ul>
         </nav>
     </header>
@@ -55,9 +55,10 @@ $isUserConnected = isset($_SESSION['utilisateur']);
       <img class="icon-bibliotheque" src="./assets/img/bibliotheque.png" alt="icône bibliothèque ordinateur">
       <h1>Bienvenue sur la Bibliothèque municipale</h1>
       <p>Venez découvrir nos collections de livres ! Un univers dédié à la lecture, à la découverte et à l'apprentissage. </p>
+      <p class="introduction">Explorez nos collections, participez à nos ateliers et événements, ou trouvez votre prochain livre préféré dans un espace dédié à la culture et au savoir !</p>
     </div>
 
-    <p class="introduction">Explorez nos collections, participez à nos ateliers et événements, ou trouvez votre prochain livre préféré dans un espace dédié à la culture et au savoir !</p>
+    
 </body>
 
 </html>

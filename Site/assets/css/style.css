@@ -174,14 +174,13 @@ header {
   text-align: center;
   padding: 2rem 1rem;
   border-radius: 10px;
-  margin: 2rem auto;
+  margin: 3rem auto;
   max-width: 1000px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .introduction {
-  color: white;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem;
 }
 
 .icon-bibliotheque {
