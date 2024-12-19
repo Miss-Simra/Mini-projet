@@ -42,6 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../css/style.css">
     <title>Connexion</title>
 </head>
+<header>
+<?php include("../pages/menu.php") ?>
+</header>
 <body>
     <h1>Connexion</h1>
     <form class="ajout-form" method="post" action="connexion.php"> 

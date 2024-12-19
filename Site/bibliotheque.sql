@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 12 déc. 2024 à 14:24
+-- Généré le : dim. 15 déc. 2024 à 22:10
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.13
 
@@ -171,24 +171,24 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 
 INSERT INTO `utilisateurs` (`id_utilisateur`, `identifiant`, `motdepasse`) VALUES
 (1, 'Bibliothecaire', 'i48Dha6P'),
-(2, 'Admin 1', ''),
-(3, 'Admin 2', ''),
-(4, 'Admin 3', ''),
-(5, 'Admin 4', ''),
-(6, 'Utilisateur A', ''),
-(7, 'Utilisateur B', ''),
-(8, 'Utilisateur C', ''),
-(9, 'Utilisateur D', ''),
-(10, 'Utilisateur E', ''),
-(11, 'Utilisateur F', ''),
-(12, 'Utilisateur G', ''),
-(13, 'Utilisateur H', ''),
-(14, 'Utilisateur I', ''),
-(15, 'Utilisateur J', ''),
-(16, 'Utilisateur K', ''),
-(17, 'Utilisateur L', ''),
-(18, 'Utilisateur M', ''),
-(19, 'Utilisateur N', '');
+(2, 'Admin 1', '8v*g@fE!'),
+(3, 'Admin 2', 'K7Q%UQUz'),
+(4, 'Admin 3', '_jXZ*z5x'),
+(5, 'Admin 4', 'z4gt@@CR'),
+(6, 'Utilisateur A', '3sg%APz^'),
+(7, 'Utilisateur B', '4r%N85aV'),
+(8, 'Utilisateur C', '5hM-3^#T'),
+(9, 'Utilisateur D', '%FJ!gg2A'),
+(10, 'Utilisateur E', 'm_cb5GHu'),
+(11, 'Utilisateur F', 'kzF33*K#'),
+(12, 'Utilisateur G', '6%PA3hFh'),
+(13, 'Utilisateur H', 'S74yY!2^'),
+(14, 'Utilisateur I', '-@@7GCrX'),
+(15, 'Utilisateur J', 'ZN$k=!z3'),
+(16, 'Utilisateur K', 'Rue2#qjM'),
+(17, 'Utilisateur L', '7guk+qEg'),
+(18, 'Utilisateur M', 'QbK%At=5'),
+(19, 'Utilisateur N', '6$BHk*fF');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

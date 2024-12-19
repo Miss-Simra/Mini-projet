@@ -43,7 +43,29 @@
     ));
     echo 'La nouvelle commande a été ajouté dans la table \'commande\'.';
     $requete->closeCursor();
-    
+
+    // Vérifier si le formulaire est soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nouvel_auteur = trim(strip_tags($_POST['nouvel_auteur']));
+    $nouveau_titre = trim(strip_tags($_POST['nouveau_titre']));
+    $nouvelle_annee = trim(strip_tags($_POST['nouvelle_annee']));
+    $livre_populaire = trim(strip_tags($_POST['livre_populaire']));
+
+    if (!empty($nouvel_auteur) && !empty($nouveau_titre) && !empty($nouvelle_annee) && !empty($livre_populaire)) {
+        $stmt = $bdd->prepare('INSERT INTO livres (auteur, titre_livre, annee_publication, livre_populaire) VALUES (:auteur, :titre_livre, :annee_publication, :livre_populaire)');
+        $stmt->execute(['auteur' => $nouvel_auteur, 'titre_livre' => $nouveau_titre, 'annee_publication', $nouvelle_annee, 'livre_populaire', $livre_populaire ]);
+        
+        $nouvel_auteur = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($nouvelle_annee) {
+            echo "<p>Livre ajouté !</p>";
+        } else {
+            echo "<p>Erreur pendant l'opération.</p>";
+        }
+    } else {
+        echo "<p>Veuillez remplir tous les champs.</p>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +76,9 @@
 	<link rel="stylesheet" href="../css/style.css">
     <title>Ajout d'un livre ou d'un utilisateur</title>
 </head>
+<header>
+<?php include("../pages/menu.php") ?>
+</header>
 <body>
 
 <!-- Ajout : livres -->
